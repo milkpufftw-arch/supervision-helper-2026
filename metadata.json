@@ -1,0 +1,5 @@
+{
+  "name": "Supervision Helper - 督導紀錄與回饋助手",
+  "description": "輸入督導逐字稿或筆記，自動生成正式紀錄與精美社工回饋卡片，並搭配 AI 生成插圖。",
+  "requestFramePermissions": []
+}
