@@ -240,22 +240,28 @@ export default function App() {
       try {
         setIsGenerating(true);
         // Ensure the UI has time to settle and fonts are ready
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 600));
         
         if (document.fonts) {
           await document.fonts.ready;
         }
 
         const cardElement = cardRef.current;
+        const { width, height } = cardElement.getBoundingClientRect();
         
         // Use a higher pixel ratio for crisp text on all devices
         const dataUrl = await toPng(cardElement, { 
           cacheBust: true,
           pixelRatio: 3, 
+          width: width,
+          height: height,
           backgroundColor: '#FDFBF7',
           style: {
             borderRadius: '2.5rem',
-            transform: 'scale(1)',
+            transform: 'none',
+            margin: '0',
+            left: '0',
+            top: '0'
           },
           filter: (node: HTMLElement) => {
             // Strictly exclude the hover overlay and any other unwanted elements
